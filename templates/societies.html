@@ -1,0 +1,218 @@
+<!--
+Name: Katie Fallon
+
+This is the societies.html page which provides users with information on societies,
+sports clubs, student media and bursaries.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="RouteToUni"/>
+    <meta name="google-signin-client_id" content="1081173404847-ddjfjkqhfj79u9qiv7lrsajibo3vtgqc.apps.googleusercontent.com"/>
+    <script src="static/js/animejs/lib/anime.min.js"></script>
+    <script src="static/js/animations.js"></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/flipcard-stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="../static/css/mobile-flipcard-stylesheet.css" />
+
+    <!-- Link all favicons for different sizes. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"> <!-- Manifest responsible for working as a web app on mobile devices. -->
+    <title>Societies - RouteToUni</title>
+</head>
+<body>
+    <div class="topnav">
+        <img src="static/images/back.svg" id="back" onclick="backPress()" alt="Back button"/>
+        <img src="static/images/back.svg" id="navArrow" alt="Show navigation bar"/>
+        <span id="navChatBubble" class="navBubble" onclick="window.location.assign('/chat');" onmouseover="bubbleHover('#navChatBubble')" onmouseout="bubbleLeave('#navChatBubble')">
+            <img id="navChatImg" class="navBubbleImg" src="../static/images/bubbles/chat.png" alt="Chat"/>
+            <span id="navChatTooltip" class="navBubbleTooltip">Chat</span>
+        </span>
+        <span id="navNewsBubble" class="navBubble" onclick="window.location.assign('/news');" onmouseover="bubbleHover('#navNewsBubble')" onmouseout="bubbleLeave('#navNewsBubble')">
+            <img id="navNewsImg" class="navBubbleImg" src="../static/images/bubbles/news.png" alt="News"/>
+            <span id="navNewsTooltip" class="navBubbleTooltip">News</span>
+        </span>
+        <span id="navPubsBubble" class="navBubble" onclick="window.location.assign('/pubs');" onmouseover="bubbleHover('#navPubsBubble')" onmouseout="bubbleLeave('#navPubsBubble')">
+            <img id="navPubsImg" class="navBubbleImg" src="../static/images/bubbles/drinks.png" alt="Pubs & Clubs"/>
+            <span id="navPubsTooltip" class="navBubbleTooltip">Pubs & Clubs</span>
+        </span>
+        <span id="navMapBubble" class="navBubble" onclick="window.location.assign('/map');" onmouseover="bubbleHover('#navMapBubble')" onmouseout="bubbleLeave('#navMapBubble')">
+            <img id="navLocationImg" class="navBubbleImg" src="../static/images/bubbles/location.png" alt="Map"/>
+            <span id="navMapTooltip" class="navBubbleTooltip">Campus Map</span>
+        </span>
+        <span id="navAccommBubble" class="navBubble" onclick="window.location.assign('/accommodation');" onmouseover="bubbleHover('#navAccommBubble')" onmouseout="bubbleLeave('#navAccommBubble')">
+            <img id="navAccommodationImg" class="navBubbleImg" src="../static/images/bubbles/home.png" alt="Accommodation"/>
+            <span id="navAccommTooltip" class="navBubbleTooltip">Accommodation</span>
+        </span>
+        <span id="navHealthBubble" class="navBubble" onclick="window.location.assign('/health');" onmouseover="bubbleHover('#navHealthBubble')" onmouseout="bubbleLeave('#navHealthBubble')">
+            <img id="navHealthImg" class="navBubbleImg" src="../static/images/bubbles/health.png" alt="Health"/>
+            <span id="navHealthTooltip" class="navBubbleTooltip">Health</span>
+        </span>
+        <span id="navSocietiesBubble" class="navBubble" onclick="window.location.assign('/societies');" onmouseover="bubbleHover('#navSocietiesBubble')" onmouseout="bubbleLeave('#navSocietiesBubble')">
+            <img id="navContactsImg" class="navBubbleImg" src="../static/images/bubbles/people.png" alt="Societies"/>
+            <span id="navSocietiesTooltip" class="navBubbleTooltip">Societies</span>
+        </span>
+        <span id="navRevisionBubble" class="navBubble" onclick="window.location.assign('/revision');" onmouseover="bubbleHover('#navRevisionBubble')" onmouseout="bubbleLeave('#navRevisionBubble')">
+            <img id="navRevisionImg" class="navBubbleImg" src="../static/images/bubbles/revision.png" alt="Revision"/>
+            <span id="navRevisionTooltip" class="navBubbleTooltip">Revision</span>
+        </span>
+    </div>
+    <div class="card_container">
+        <div class="card_child" id="flip-card-1">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img id="societies" src="../static/images/societies/societies.png">
+                <h2 id="title-front">Societies</h2>
+            </div>
+            <div class="flip-card-back">
+                <div class="ScrollStyle">
+                <h1 id="title-back">Why Join a Society?</h1>
+                <p>
+                    Societies are a great way to make friends and attend weekly social events.
+                    There are over 200 societies to choose from including
+                    Cheese & Wine Society, 20-Minute Society and Irish Dance.
+                    Joining a course based societies will allow you to meet others from your chosen subject. <br/>
+                    To see a full list of Societies available please click
+                    <a href="https://www.nusu.co.uk/getinvolved/societies/list/" target="_blank">Here.</a>
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="card_child" id="flip-card-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="volunteer" src="../static/images/societies/volunteer.png">
+                    <h2 id="title-front">Volunteering</h2>
+                </div>
+                <div class="flip-card-back">
+                    <!--Information taken from NUSU website-->
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Why Volunteer?</h1>
+                    <p>
+                        Want to help out your local community? Go Volunteer
+                        will allow you to develop employability skills and make new friends.
+                        Here is a flavour of the types of activities you can get involved with...<br/>
+                        <a href=https://www.nusu.co.uk/volunteering/details/536/">N.E.S.T</a>
+                        helps local refugee and asylum-seekers through English classes,
+                        football, arts and craft and days out.<br/>
+                        <a href="https://www.nusu.co.uk/getinvolved/societies/society/25124/">Helping Our Homeless Society</a>
+                            offers educational workshops
+                        and distributes supplies to homeless people in Newcastle.<br/>
+                        <a href="https://www.nusu.co.uk/volunteering/details/430/">Beekeeping</a>
+                        will allow you to experience beekeeping first
+                        hand right here on campus!<br/>
+                        For more information on the opportunities available
+                        please visit the
+                        <a href="https://www.nusu.co.uk/volunteering/">Go Volunteer Website</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="sports_clubs" src="../static/images/societies/sports.png">
+                    <h2 id="title-front">Sports Clubs</h2>
+                </div>
+                <div class="flip-card-back">
+                    <!--Information taken from NUSU website-->
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Why Join a Sports Club?</h1>
+                    <p>
+                        NUSU has over 65
+                        <a href="https://www.nusu.co.uk/getinvolved/sport/clubs/" target="_blank">sports clubs</a>
+                            to get involved with,
+                        including American Football and Water Polo!
+                        These clubs welcome everyone, regardless of your fitness
+                        levels or experience.
+                        There is even opportunity to participate in
+                        <a href="https://www.nusu.co.uk/getinvolved/sport/campusleagues/" target="_blank">Campus League</a>
+                        competitions against other universities.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-4">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="s_media" src="../static/images/societies/media-white.png">
+                    <h2 id="title-front">Student Media</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">What is Student Media?</h1>
+                    <!--Information taken from NUSU website-->
+                            <p>
+                                Love Journalism, Media or Radio? Then you should
+                                definitely get involved in one of the University's Student Media teams.<br/>
+
+                                Newcastle Student Radio is online 24/7 with shows produced by students.
+                                You can learn about all aspects of radio, including presenting, producing
+                                or behind the scenes opportunities. Contact them here:
+                                <a href="http://thisisnsr.co.uk/contacts/" target="_blank">http://thisisnsr.co.uk/contacts/</a><br/>
+
+                                The Courrier Newspaper offers students the opportunity for their voices to be heard,
+                                regardless of prior journalistic experience.<br/>
+
+                                NUTV produce television content on a huge variety of content,
+                                such as current affairs, lifestyle and entertainment.
+                                There are plenty of opportunities to get involved
+                                and make industry connections.
+                            Our award-winning Student Media team is always hot on the heels for the latest coverage.
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="card_child" id="flip-card-5">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="GIAG" src="../static/images/societies/giag.png">
+                    <h2 id="title-front">Give It a Go</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Why Give It a Go?</h1>
+                    <p>
+                    <!--Information taken from NUSU website-->
+                        Want to try something new? Then Give It a Go!
+                        Try different activities every month such as sports,
+                        socials and days out and make new friends.
+                        <br/>
+                    See the <a href="https://www.nusu.co.uk/getinvolved/giveitago/" target="_blank">Give It a Go website</a>
+                    for more information and follow
+                    their <a href="https://www.facebook.com/NUSUgiag" target="_blank">Facebook Page</a>
+                    to keep up to date with their activities.
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-6">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="bursaries" src="../static/images/societies/budget.png">
+                    <h2 id="title-front">Bursaries</h2>
+                </div>
+                <div class="flip-card-back">
+                    <h1 id="title-back"></h1>
+                </div>
+                <div class="flip-card-back">
+                    <iframe width="100%" height="80%" src="https://www.youtube.com/embed/jI5KtAjG6xw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="ScrollStyle">
+                    <p>Find out more about Participation Bursaries <a href="https://www.nusu.co.uk/getinvolved/bursaries/" target="_blank">here.</a> </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+</body>
+</html>

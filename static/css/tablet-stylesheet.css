@@ -1,0 +1,137 @@
+/* Name: Oliver Fox */
+/* All styling properties for the tablet version of the website */
+
+#newcastleLogo {
+    height: 8vw;
+    width: 7vw;
+}
+
+#newcastleText {
+    font-size: 4vw;
+}
+
+#universityText {
+    font-size: 4.3vw;
+}
+
+/* Change size of bubbles for tablet */
+.homePageBubble {
+    height: 11vh;
+    width: 11vh;
+}
+
+/* Change bubble positions for tablet */
+#chatBubble {
+    top: 28%;
+    left: 28%;
+}
+
+#newsBubble {
+    left: 45%;
+    top: 15%;
+}
+
+#pubsBubble {
+    top: 28%;
+    right: 24%;
+}
+
+#mapBubble {
+    bottom: 46%;
+    right: 10%;
+}
+
+#accommBubble {
+    bottom: 46%;
+    left: 10%;
+}
+
+#healthBubble {
+    bottom: 28%;
+    right: 24%;
+}
+
+#societiesBubble {
+    left: 45%;
+    bottom: 15%;
+}
+
+#revisionBubble {
+    bottom: 28%;
+    left: 28%;
+}
+
+/* Positioning for bubble icons */
+.homeBubbleImg {
+    height: 7vh;
+}
+
+/* Change size of sign up/login boxes to fill screen */
+.signUpDialogContent, .loginDialogContent, .gSignUpDialogContent {
+    background-color: #142e51;
+    padding: 20px;
+    border: 1px solid #081730;
+    border-radius: 5px;
+    box-shadow: 0 0 30px 1px #2b2c51;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    margin-top: 20% !important;
+    width: auto;
+}
+
+#signUpEmail, #loginEmail, #loginPassword {
+    position: relative;
+    width: 98%;
+    max-width: 100% !important;
+    height: auto;
+    font-size: 2vh;
+}
+
+/* Increase font size for various elements */
+#signUpBtn, #loginBtn, #gSignUp, #googleSignIn, h3, #registerLink, #firstName, #lastName, #signUpPassword,
+#signUpPasswordRepeat, #gPassword, #gPasswordRepeat, .select2-selection__rendered, .select2-results__options,
+#signUpEmail, #loginEmail, #loginPassword, .sth-select, .signUpError {
+    font-size: 4vw;
+}
+
+#firstName, #lastName, #signUpPassword, #signUpPasswordRepeat, #gPassword, #gPasswordRepeat {
+    height: auto;
+    width: 48%;
+}
+
+.signUpDialog {
+    padding-top: 0 !important;
+    top: -10% !important;
+}
+
+/* Increase size of font for select menus*/
+.mobileSelect-container {
+    font-size: 4vw;
+    font-family: Nunito;
+}
+
+button.btn-mobileSelect-gen:not([class*=col-]):not([class*=form-control]):not(.input-group-btn):not(.btn-block) {
+    font-size: 4vw;
+}
+
+/* Change position of account box to be positioning better for tablet */
+.box {
+    top: 0%;
+}
+
+/* Increase width of account box */
+.box-content {
+    width: 80%;
+}
+
+#changePicture {
+    top: 42%;
+}
+
+#notetaking_pic, #library_pic, #revision_pic, #references_pic {
+    height: 22vh;
+}
+
+.navBubbleTooltip {
+    font-size: 0.5vh;
+}

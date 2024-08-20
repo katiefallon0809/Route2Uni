@@ -1,0 +1,212 @@
+<!--
+Name: Katie Fallon
+
+This is the accommodation.html page which provides users with information on
+the different types of accommodation,
+-->
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="RouteToUni"/>
+    <meta name="google-signin-client_id" content="1081173404847-ddjfjkqhfj79u9qiv7lrsajibo3vtgqc.apps.googleusercontent.com"/>
+    <script src="static/js/animejs/lib/anime.min.js"></script>
+    <script src="static/js/animations.js"></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/flipcard-stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="../static/css/mobile-flipcard-stylesheet.css" />
+
+    <!-- Link all favicons for different sizes. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"> <!-- Manifest responsible for working as a web app on mobile devices. -->
+    <title>Accommodation - RouteToUni</title>
+</head>
+<body>
+    <div class="topnav">
+        <img src="static/images/back.svg" id="back" onclick="backPress()" alt="Back button"/>
+        <img src="static/images/back.svg" id="navArrow" alt="Show navigation bar"/>
+        <span id="navChatBubble" class="navBubble" onclick="window.location.assign('/chat');" onmouseover="bubbleHover('#navChatBubble')" onmouseout="bubbleLeave('#navChatBubble')">
+            <img id="navChatImg" class="navBubbleImg" src="../static/images/bubbles/chat.png" alt="Chat"/>
+            <span id="navChatTooltip" class="navBubbleTooltip">Chat</span>
+        </span>
+        <span id="navNewsBubble" class="navBubble" onclick="window.location.assign('/news');" onmouseover="bubbleHover('#navNewsBubble')" onmouseout="bubbleLeave('#navNewsBubble')">
+            <img id="navNewsImg" class="navBubbleImg" src="../static/images/bubbles/news.png" alt="News"/>
+            <span id="navNewsTooltip" class="navBubbleTooltip">News</span>
+        </span>
+        <span id="navPubsBubble" class="navBubble" onclick="window.location.assign('/pubs');" onmouseover="bubbleHover('#navPubsBubble')" onmouseout="bubbleLeave('#navPubsBubble')">
+            <img id="navPubsImg" class="navBubbleImg" src="../static/images/bubbles/drinks.png" alt="Pubs & Clubs"/>
+            <span id="navPubsTooltip" class="navBubbleTooltip">Pubs & Clubs</span>
+        </span>
+        <span id="navMapBubble" class="navBubble" onclick="window.location.assign('/map');" onmouseover="bubbleHover('#navMapBubble')" onmouseout="bubbleLeave('#navMapBubble')">
+            <img id="navLocationImg" class="navBubbleImg" src="../static/images/bubbles/location.png" alt="Map"/>
+            <span id="navMapTooltip" class="navBubbleTooltip">Campus Map</span>
+        </span>
+        <span id="navAccommBubble" class="navBubble" onclick="window.location.assign('/accommodation');" onmouseover="bubbleHover('#navAccommBubble')" onmouseout="bubbleLeave('#navAccommBubble')">
+            <img id="navAccommodationImg" class="navBubbleImg" src="../static/images/bubbles/home.png" alt="Accommodation"/>
+            <span id="navAccommTooltip" class="navBubbleTooltip">Accommodation</span>
+        </span>
+        <span id="navHealthBubble" class="navBubble" onclick="window.location.assign('/health');" onmouseover="bubbleHover('#navHealthBubble')" onmouseout="bubbleLeave('#navHealthBubble')">
+            <img id="navHealthImg" class="navBubbleImg" src="../static/images/bubbles/health.png" alt="Health"/>
+            <span id="navHealthTooltip" class="navBubbleTooltip">Health</span>
+        </span>
+        <span id="navSocietiesBubble" class="navBubble" onclick="window.location.assign('/societies');" onmouseover="bubbleHover('#navSocietiesBubble')" onmouseout="bubbleLeave('#navSocietiesBubble')">
+            <img id="navContactsImg" class="navBubbleImg" src="../static/images/bubbles/people.png" alt="Societies"/>
+            <span id="navSocietiesTooltip" class="navBubbleTooltip">Societies</span>
+        </span>
+        <span id="navRevisionBubble" class="navBubble" onclick="window.location.assign('/revision');" onmouseover="bubbleHover('#navRevisionBubble')" onmouseout="bubbleLeave('#navRevisionBubble')">
+            <img id="navRevisionImg" class="navBubbleImg" src="../static/images/bubbles/revision.png" alt="Revision"/>
+            <span id="navRevisionTooltip" class="navBubbleTooltip">Revision</span>
+        </span>
+    </div>
+    <div class="card_container">
+        <div class="card_child" id="flip-card-1">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="studentaccom" src="static/images/accommodation/studentaccomm.png">
+                    <h2 id="title-front">Halls of Residence</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Should I stay in Halls of Residence?</h1>
+                    <p>Many students decide to remain in halls of residence in second year,
+                    private halls often offer the option to live your friends and facilities such as
+                    a games room and a gym may be included in your rent. On site security is
+                    also included, which can help students feel safe during their stay.<br/>
+                    <b class="bold">Pros:</b>
+                            Shorter Contract, Student
+                            Neighbours, Security, Facilities
+                            and Inclusive Bills.
+                        <br/>
+                        <b class="bold">Cons:</b>
+                            Usually more expensive, often no outdoor space.
+                    </p>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="rented" src="static/images/accommodation/rented.png">
+                    <h2 id="title-front">Privately Rented Accommodation</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Should I stay in privately rented accommodation?</h1>
+                    <p>Many students opt to live in rented homes during their second year,
+                    this can often allow for more independence and can be cheaper than living in halls.
+                        <br/>
+                        <b class="bold">Pros:</b>
+                        Move in over Summer, Local
+                        community, more choice of room
+                        style, might have outdoor space and
+                        usually more affordable.<br/>
+                        <b class="bold">Cons:</b>
+                        Non-student neighbours and might
+                        have to travel further in.
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="home" src="static/images/accommodation/home.png">
+                    <h2 id="title-front">Living at home</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Should I live at home?</h1>
+                    <p>If you live locally, living at home could save you a lot of money.
+                    However, the cost of commuting into uni should be considered. Students can get a discount
+                    on public transport such as the Metro or Stage Coach Buses, have a look to see if any other
+                    bus or transport companies offer a similar discount.
+                    Societies usually hold socials every month, and you can still go out with friends
+                        so a social life can still be had even though you are not living with flatmates.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-4">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="search" src="static/images/accommodation/search.png">
+                    <h2 id="title-front">Top Tips</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Advice for finding a home to rent</h1>
+                        <ul>
+                            <li>Turn on alerts on <a href="https://www.rightmove.co.uk/" target="_blank">Rightmove</a> for houses to rent in the location you want to live so you get notified as soon as they become available.</li>
+                            <li>Ring estate agents as sometimes houses advertised are already off the market and they will give you a list of the properties they have available.</li>
+                            <li>Check if bills are included in your rent. If they are included make sure to check how much this is, as it might be cheaper to do your own bills.</li>
+                            <li>If you like a property but the dates aren’t suitable, you can ask the landlord if the dates can be changed as they can sometimes be lenient.</li>
+                            <li>Rent in Jesmond is higher than a lot of surrounding places but it is where all the student bars are and where the majority of students live, but places nearby like Sandyford and Heaton are cheaper</li>
+                        </ul>
+                        <p>For more detailed advice on finding a property to rent, take a look
+                            at <a href="https://www.nusu.co.uk/pageassets/support/sac/housing/Housing-Guide-2020-21.pdf" target="_blank">NUSU's Housing Guide</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-5">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="time" src="static/images/accommodation/time.png">
+                    <h2 id="title-front">Timeframes</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">When should I have sorted my living arrangements for Second Year?</h1>
+                    <p>Many students get their accommodation sorted within first semester.
+                    However, you shouldn't worry as accommodation can be found all year round.
+                    Try to ensure you are living with people you get along well with.
+                    If you are struggling to find accommodation or people to live with,
+                        take a look at <a href="https://www.facebook.com/groups/275801262577085/" target="_blank">Castle Leasez Ticket Exchange</a>
+                        on Facebook, as there are
+                    always people looking for additional house mates.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-6">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="checklist" src="static/images/accommodation/checklist.png">
+                    <h2 id="title-front">Checklist</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Viewing Checklist</h1>
+                    <label class="container">Number of bedrooms - Do you have enough people?
+                        <input type="checkbox" checked="checked">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Distance to uni (walk? metro? bus?)
+                        <input type="checkbox" >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Where is the nearest supermarket?
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container">Is there anything not shown in the photos? Is the landlord avoiding something?
+                        <input type="checkbox" >
+                        <span class="checkmark"></span>
+                    </label>
+                    <p id="info">For a more in-depth checklist, have a look at
+                        <a href="https://www.nusu.co.uk/pageassets/support/sac/housing/Property-Checklist.pdf" target="_blank">NUSU's
+                        Property Checklist.</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

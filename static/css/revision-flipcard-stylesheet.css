@@ -1,0 +1,155 @@
+/* Name: William Macpherson
+
+This is the stylesheet for the revision page*/
+
+/*The majority of this page is similar to flipcard-stylesheet.css*/
+html, body {
+    background-color: #d91a35 !important;
+    background: #d91a35 !important;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
+p {
+    color: black !important;
+}
+
+/*There are only 4 flipcards on the revision page due to content information
+  The */
+#flip-card-1 {
+    background-color: #d91a35;
+    top:5%;
+    left:5%;
+    width: 42.5%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px;
+}
+
+#flip-card-2 {
+    background-color: #d91a35;
+    top:5%;
+    right:5%;
+    width: 42.5%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px;
+}
+
+#flip-card-3 {
+    background-color: #d91a35;
+    bottom:5%;
+    left:5%;
+    width: 42.5%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px;
+}
+
+#flip-card-4 {
+    background-color: #d91a35;
+    bottom:5%;
+    right:5%;
+    width: 42.5%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px;
+}
+.flip-card-front {
+    padding: 5px 10px 5px 10px;
+    font-family: 'GilroyBold', 'sans-serif';
+    border-radius: 15px;
+    background-color: #103f67;
+    color: white;
+}
+
+/* Style the back side */
+.flip-card-back {
+    padding: 5px 10px 5px 10px;
+    font-family: 'GilroyMedium', 'sans-serif';
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+
+}
+/* Position the front and back side */
+.flip-card-front, .flip-card-back{
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+/* Do an horizontal flip when you move the mouse over the flip box container */
+#flip-card-1:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-2:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-3:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-4:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+/*The container for the ability to scroll down */
+.ScrollStyle {
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
+
+}
+/*Hides the scroll bar*/
+.ScrollStyle::-webkit-scrollbar {
+  display: none;
+}
+/*section container within flipcard-back*/
+section {
+  height: 85vh;
+  scroll-snap-align: start;
+    scroll-snap-type: y mandatory;
+  text-align: left;
+  position: relative;
+}
+/*A second page for the inner flipcard so it clips when you scroll down*/
+.page-2 {
+    background-color: lightblue;
+    border-radius: 15px;
+    border-right-width: 10px;
+    background-clip: padding-box;
+    height: 42.5vh;
+}
+/*front title*/
+#title-front {
+    position: center;
+    bottom: 10%;
+}
+/*heading tag */
+h4 {
+    text-align: center;
+}
+/*pictures*/
+#notetaking_pic, #library_pic, #revision_pic, #references_pic {
+    height: 32vh;
+}

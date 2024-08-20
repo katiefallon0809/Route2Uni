@@ -1,0 +1,187 @@
+<!--
+Name: Maya Vandra
+
+This is the pubs.html page which provides information about pubs, clubs and bars in Newcastle, and tips on staying safe.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="RouteToUni"/>
+    <meta name="google-signin-client_id" content="1081173404847-ddjfjkqhfj79u9qiv7lrsajibo3vtgqc.apps.googleusercontent.com"/>
+    <script src="static/js/animejs/lib/anime.min.js"></script>
+    <script src="static/js/animations.js"></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/flipcard-stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="../static/css/mobile-flipcard-stylesheet.css" />
+
+    <!-- Link all favicons for different sizes. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"> <!-- Manifest responsible for working as a web app on mobile devices. -->
+    <title>Pubs - RouteToUni</title>
+</head>
+<body>
+    <div class="topnav">
+        <img src="static/images/back.svg" id="back" onclick="backPress()" alt="Back button"/>
+        <img src="static/images/back.svg" id="navArrow" alt="Show navigation bar"/>
+        <span id="navChatBubble" class="navBubble" onclick="window.location.assign('/chat');" onmouseover="bubbleHover('#navChatBubble')" onmouseout="bubbleLeave('#navChatBubble')">
+            <img id="navChatImg" class="navBubbleImg" src="../static/images/bubbles/chat.png" alt="Chat"/>
+            <span id="navChatTooltip" class="navBubbleTooltip">Chat</span>
+        </span>
+        <span id="navNewsBubble" class="navBubble" onclick="window.location.assign('/news');" onmouseover="bubbleHover('#navNewsBubble')" onmouseout="bubbleLeave('#navNewsBubble')">
+            <img id="navNewsImg" class="navBubbleImg" src="../static/images/bubbles/news.png" alt="News"/>
+            <span id="navNewsTooltip" class="navBubbleTooltip">News</span>
+        </span>
+        <span id="navPubsBubble" class="navBubble" onclick="window.location.assign('/pubs');" onmouseover="bubbleHover('#navPubsBubble')" onmouseout="bubbleLeave('#navPubsBubble')">
+            <img id="navPubsImg" class="navBubbleImg" src="../static/images/bubbles/drinks.png" alt="Pubs & Clubs"/>
+            <span id="navPubsTooltip" class="navBubbleTooltip">Pubs & Clubs</span>
+        </span>
+        <span id="navMapBubble" class="navBubble" onclick="window.location.assign('/map');" onmouseover="bubbleHover('#navMapBubble')" onmouseout="bubbleLeave('#navMapBubble')">
+            <img id="navLocationImg" class="navBubbleImg" src="../static/images/bubbles/location.png" alt="Map"/>
+            <span id="navMapTooltip" class="navBubbleTooltip">Campus Map</span>
+        </span>
+        <span id="navAccommBubble" class="navBubble" onclick="window.location.assign('/accommodation');" onmouseover="bubbleHover('#navAccommBubble')" onmouseout="bubbleLeave('#navAccommBubble')">
+            <img id="navAccommodationImg" class="navBubbleImg" src="../static/images/bubbles/home.png" alt="Accommodation"/>
+            <span id="navAccommTooltip" class="navBubbleTooltip">Accommodation</span>
+        </span>
+        <span id="navHealthBubble" class="navBubble" onclick="window.location.assign('/health');" onmouseover="bubbleHover('#navHealthBubble')" onmouseout="bubbleLeave('#navHealthBubble')">
+            <img id="navHealthImg" class="navBubbleImg" src="../static/images/bubbles/health.png" alt="Health"/>
+            <span id="navHealthTooltip" class="navBubbleTooltip">Health</span>
+        </span>
+        <span id="navSocietiesBubble" class="navBubble" onclick="window.location.assign('/societies');" onmouseover="bubbleHover('#navSocietiesBubble')" onmouseout="bubbleLeave('#navSocietiesBubble')">
+            <img id="navContactsImg" class="navBubbleImg" src="../static/images/bubbles/people.png" alt="Societies"/>
+            <span id="navSocietiesTooltip" class="navBubbleTooltip">Societies</span>
+        </span>
+        <span id="navRevisionBubble" class="navBubble" onclick="window.location.assign('/revision');" onmouseover="bubbleHover('#navRevisionBubble')" onmouseout="bubbleLeave('#navRevisionBubble')">
+            <img id="navRevisionImg" class="navBubbleImg" src="../static/images/bubbles/revision.png" alt="Revision"/>
+            <span id="navRevisionTooltip" class="navBubbleTooltip">Revision</span>
+        </span>
+    </div>
+    <div class="card_container">
+        <div class="card_child" id="flip-card-1">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img id="clubs" src="../static/images/pubs_and_clubs/best-clubs.png">
+                <h2 id="title-front">Best Clubs in Newcastle</h2>
+            </div>
+            <div class="flip-card-back">
+                <div class="ScrollStyle">
+                    <h1 id="title-back">There are lots of clubs in Newcastle. Here are some of the best to go to:</h1>
+                    <ul>
+                        <li>Soho</li>
+                        <li>Digital</li>
+                        <li>Market Shaker</li>
+                        <li>Bijoux</li>
+                        <li>Bierkeller</li>
+                        <li>Flares</li>
+                        <li>World HQ</li>
+                        <li>Sinners</li>
+                        <li>Grey's Club</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="card_child" id="flip-card-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="pubs" src="../static/images/pubs_and_clubs/best-pubs.png">
+                    <h2 id="title-front">Best Pubs in Newcastle</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">You can enjoy drinks with friends at these pubs:</h1>
+                    <ul>
+                        <li>Dog and Parrot</li>
+                        <li>The Central Bar</li>
+                        <li>The Tyne Bar</li>
+                        <li>Brewdog</li>
+                        <li>The Town Wall</li>
+                        <li>Lady Grey's</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="bars" src="../static/images/pubs_and_clubs/best-bars.png">
+                    <h2 id="title-front">Best Bars in Newcastle</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">You can sit and enjoy cocktails with friends at these bars:</h1>
+                    <ul>
+                        <li>The Botanist</li>
+                        <li>The Alchemist</li>
+                        <li>Lola Jean</li>
+                        <li>Slug and Lettuce</li>
+                        <li>Jam Jar</li>
+                        <li>Florita's</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-4">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="drinks" src="../static/images/pubs_and_clubs/best-drinks.png">
+                    <h2 id="title-front">Best Drinks to Order</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Here are some good drink choices to try next time you're out:</h1>
+                      <ul>
+                        <li>Cocktails - Mojito, Daiquiri, Martini</li>
+                        <li>Spirits - Vodka + Lemonade/Red Bull</li>
+                        <li>Wines - Sauvignon, Merlot, Chardonnay</li>
+                        <li>Beers - San Miguel, Guinnes, Bulmers</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-5">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="tips" src="../static/images/pubs_and_clubs/top-tips.png">
+                    <h2 id="title-front">Top Tips for Clubbing</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Here's some advice to ensure you have a good night out:</h1>
+                         <ul>
+                        <li>Pre-drink at home to save some money. Drinks can be expensive in clubs!</li>
+                        <li>Know your limits. Don’t buy more drinks if you feel you don’t need it. You can always ask for water instead. </li>
+                        <li>Agree with a friend to go home together so you don’t end up walking home on your own. If you do end up alone, order a taxi instead of walking on your own. </li>
+                        <li>At the end of the night, make sure to eat some food and drink lots of water </li>
+                    </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <div class="card_child" id="flip-card-6">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="safe" src="../static/images/pubs_and_clubs/staying-safe.png">
+                    <h2 id="title-front">Staying Safe</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">Staying Safe</h1>
+                    <p><h4> Newcastle University Safe Taxi Scheme.</h4>
+                    If you have no money to get home but have your student card, you can call 0191 298 5050 and quote reference NEW02 to get a taxi home.</p>
+                    <p>If you are in an emergency, call 999 for assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!--
+Name: Katie Fallon
+
+This is the health.html page which provides users with information on
+registering with a GP, mental health, sexual health, PEC forms and
+Coronavirus.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="RouteToUni"/>
+    <meta name="google-signin-client_id" content="1081173404847-ddjfjkqhfj79u9qiv7lrsajibo3vtgqc.apps.googleusercontent.com"/>
+    <script src="static/js/animejs/lib/anime.min.js"></script>
+    <script src="static/js/animations.js"></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/flipcard-stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="../static/css/mobile-flipcard-stylesheet.css" />
+
+    <!-- Link all favicons for different sizes. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"> <!-- Manifest responsible for working as a web app on mobile devices. -->
+    <title>Health - RouteToUni</title>
+</head>
+<body>
+    <div class="topnav">
+        <img src="static/images/back.svg" id="back" onclick="backPress()" alt="Back button"/>
+        <img src="static/images/back.svg" id="navArrow" alt="Show navigation bar"/>
+        <span id="navChatBubble" class="navBubble" onclick="window.location.assign('/chat');" onmouseover="bubbleHover('#navChatBubble')" onmouseout="bubbleLeave('#navChatBubble')">
+            <img id="navChatImg" class="navBubbleImg" src="../static/images/bubbles/chat.png" alt="Chat"/>
+            <span id="navChatTooltip" class="navBubbleTooltip">Chat</span>
+        </span>
+        <span id="navNewsBubble" class="navBubble" onclick="window.location.assign('/news');" onmouseover="bubbleHover('#navNewsBubble')" onmouseout="bubbleLeave('#navNewsBubble')">
+            <img id="navNewsImg" class="navBubbleImg" src="../static/images/bubbles/news.png" alt="News"/>
+            <span id="navNewsTooltip" class="navBubbleTooltip">News</span>
+        </span>
+        <span id="navPubsBubble" class="navBubble" onclick="window.location.assign('/pubs');" onmouseover="bubbleHover('#navPubsBubble')" onmouseout="bubbleLeave('#navPubsBubble')">
+            <img id="navPubsImg" class="navBubbleImg" src="../static/images/bubbles/drinks.png" alt="Pubs & Clubs"/>
+            <span id="navPubsTooltip" class="navBubbleTooltip">Pubs & Clubs</span>
+        </span>
+        <span id="navMapBubble" class="navBubble" onclick="window.location.assign('/map');" onmouseover="bubbleHover('#navMapBubble')" onmouseout="bubbleLeave('#navMapBubble')">
+            <img id="navLocationImg" class="navBubbleImg" src="../static/images/bubbles/location.png" alt="Map"/>
+            <span id="navMapTooltip" class="navBubbleTooltip">Campus Map</span>
+        </span>
+        <span id="navAccommBubble" class="navBubble" onclick="window.location.assign('/accommodation');" onmouseover="bubbleHover('#navAccommBubble')" onmouseout="bubbleLeave('#navAccommBubble')">
+            <img id="navAccommodationImg" class="navBubbleImg" src="../static/images/bubbles/home.png" alt="Accommodation"/>
+            <span id="navAccommTooltip" class="navBubbleTooltip">Accommodation</span>
+        </span>
+        <span id="navHealthBubble" class="navBubble" onclick="window.location.assign('/health');" onmouseover="bubbleHover('#navHealthBubble')" onmouseout="bubbleLeave('#navHealthBubble')">
+            <img id="navHealthImg" class="navBubbleImg" src="../static/images/bubbles/health.png" alt="Health"/>
+            <span id="navHealthTooltip" class="navBubbleTooltip">Health</span>
+        </span>
+        <span id="navSocietiesBubble" class="navBubble" onclick="window.location.assign('/societies');" onmouseover="bubbleHover('#navSocietiesBubble')" onmouseout="bubbleLeave('#navSocietiesBubble')">
+            <img id="navContactsImg" class="navBubbleImg" src="../static/images/bubbles/people.png" alt="Societies"/>
+            <span id="navSocietiesTooltip" class="navBubbleTooltip">Societies</span>
+        </span>
+        <span id="navRevisionBubble" class="navBubble" onclick="window.location.assign('/revision');" onmouseover="bubbleHover('#navRevisionBubble')" onmouseout="bubbleLeave('#navRevisionBubble')">
+            <img id="navRevisionImg" class="navBubbleImg" src="../static/images/bubbles/revision.png" alt="Revision"/>
+            <span id="navRevisionTooltip" class="navBubbleTooltip">Revision</span>
+        </span>
+    </div>
+    <div class="card_container">
+        <div class="card_child" id="flip-card-1">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <img id="m_health" src="../static/images/health/mental-health.png">
+                <h2 id="title-front">Mental Health</h2>
+            </div>
+            <div class="flip-card-back">
+                <div class="ScrollStyle">
+                <h1 id="title-back">How can I look after my mental health while at uni?</h1>
+                <p>Nurture your wellbeing by following the <a href="https://www.mind.org.uk/workplace/mental-health-at-work/taking-care-of-yourself/five-ways-to-wellbeing/" >Five Steps to Wellbeing:</a></p>
+                <ul>
+                    <li>Connect with Others</li>
+                    <li>Keep Active</li>
+                    <li>Keep Learning</li>
+                    <li><a href="https://www.nusu.co.uk/volunteering/govolunteer/" target="_blank">Help Others</a></li>
+                    <li>Practice Mindfulness</li>
+                </ul>
+                <p>The University offers free online CBT sessions via <a href="https://www.ncl.ac.uk/wellbeing/mentalwellbeing/online-cbt/" target="_blank">Silvercloud.</a><br/>
+                    For more information on support and resources available please click <a href="https://www.ncl.ac.uk/wellbeing/mentalwellbeing/mentalwellbeing/#mentalhealthinformation" target="_blank">here.</a><br/>
+                    If you need support, please don't hesitate to contact <a href="https://www.ncl.ac.uk/wellbeing/mentalwellbeing/#wellbeingconsultancyservice" target="_blank">Student Welfare</a>
+                    who will be able to offer you support and guidance.
+                </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        <div class="card_child" id="flip-card-2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="doctor" src="../static/images/health/doctor.png">
+                    <h2 id="title-front">Register With a GP and Dentist</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">How can I find a doctor or dentist in Newcastle?</h1>
+                    <p> It is essential you look after your health while at uni
+                        and make sure you have regular check ups with your dentist and
+                        visit your GP when needed.<br/>
+                        You can register with a GP here: <a href="https://www.studentgpreg.org.uk/" target="_blank">https://www.studentgpreg.org.uk/</a>
+                    You can find local Dentist surgeries here: <a href="https://www.nhs.uk/Service-Search/find-a-dentist" target="_blank">https://www.nhs.uk/Service-Search/find-a-dentist</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="s_health" src="../static/images/health/sexual-health.png">
+                    <h2 id="title-front">Sexual Health</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">How can I look after my sexual health while at uni?</h1>
+                    <p>Newcastle Sexual Health Service provides a variety of free support offering: </p>
+                        <ul>
+                    <li id="list">contraception</li>
+                    <li id="list">testing for sexually transmitted infections (STIs or STDs)</li>
+                    <li id="list">information on abortion services</li>
+                    <li id="list">walk-in clinics</li>
+                    <li id="list">booked appointments</li>
+                        </ul>
+                    <p>Free condoms, lubricant, home chlamydia testing kits and emergency sanitary products can be picked up from the <a href="https://www.nusu.co.uk/support/sac/health/" target="_blank>">Student Advice Centre.</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-4">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="pec1" src="../static/images/health/pec1.png">
+                    <h2 id="title-front">PEC Forms</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">What is a Pec Form?</h1>
+                        <p>If an unforseen personal circumstance has affected your ability to study,
+                            you should fill in a
+                            <a href=https://www.ncl.ac.uk/student-progress/circumstances/pec/" target="_blank">Personal Extenuating Circumstances (PEC) Form</a>
+                            in order to request appropriate adjustments to be put in place.
+                            Information on how to fill in the form can be found on the next card.
+                            </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        <div class="card_child" id="flip-card-5">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="pec2" src="../static/images/health/pec.png">
+                    <h2 id="title-front">Submitting a PEC Form</h2>
+                </div>
+                <div class="flip-card-back">
+                    <h1 id="title-back">How do I submit a PEC form?</h1>
+                    <iframe id="video" src="https://www.youtube.com/embed/KFWBczJukmo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="card_child" id="flip-card-6">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="coronavirus" src="../static/images/health/rona.png">
+                    <h2 id="title-front">Coronavirus</h2>
+                </div>
+                <div class="flip-card-back">
+                    <div class="ScrollStyle">
+                    <h1 id="title-back">What is the latest guidance on Coronavirus?</h1>
+                    <p>For the latest advice on the Coronavirus pandemic, please see the <a href="https://www.gov.uk/coronavirus?gclid=Cj0KCQiA9P__BRC0ARIsAEZ6iriF52GGVpePw0laDc8XmJLG6WIl-sL5ROwJbaNnLEhWvyxVv3cp2CAaAiD5EALw_wcB" target="_blank">government website</a> or visit the <a href="https://enquire.ncl.ac.uk/en/covid-19-faqs" target="_blank">University FAQ page.</a>
+                        Symptoms must be reported to the uni, who will support you if you need to self isolate: <a href="https://www.ncl.ac.uk/wellbeing/coronavirus-studentsupport/" target="_blank">Contact Student Support</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

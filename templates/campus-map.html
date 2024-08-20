@@ -1,0 +1,72 @@
+<!--
+Name: Maya Vandra
+
+This is the campus-map.html page which displays a campus map, showing all university buildings.
+-->
+<!DOCTYPE html>
+<html lang="en" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <script src="static/js/animejs/lib/anime.min.js"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="../static/css/mobile-stylesheet.css" />
+    <script src="static/js/animations.js"></script>
+
+    <!-- Link all favicons for different sizes. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"> <!-- Manifest responsible for working as a web app on mobile devices. -->
+    <title>Campus Map - RouteToUni</title>
+    <style>
+        div.centre {
+            text-align:center;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <img src="static/images/back.svg" id="back" onclick="backPress()" alt="Back button"/>
+        <img src="static/images/back.svg" id="navArrow" alt="Show navigation bar"/>
+        <span id="navChatBubble" class="navBubble" onclick="window.location.assign('/chat');" onmouseover="bubbleHover('#navChatBubble')" onmouseout="bubbleLeave('#navChatBubble')">
+            <img id="navChatImg" class="navBubbleImg" src="../static/images/bubbles/chat.png" alt="Chat"/>
+            <span id="navChatTooltip" class="navBubbleTooltip">Chat</span>
+        </span>
+        <span id="navNewsBubble" class="navBubble" onclick="window.location.assign('/news');" onmouseover="bubbleHover('#navNewsBubble')" onmouseout="bubbleLeave('#navNewsBubble')">
+            <img id="navNewsImg" class="navBubbleImg" src="../static/images/bubbles/news.png" alt="News"/>
+            <span id="navNewsTooltip" class="navBubbleTooltip">News</span>
+        </span>
+        <span id="navPubsBubble" class="navBubble" onclick="window.location.assign('/pubs');" onmouseover="bubbleHover('#navPubsBubble')" onmouseout="bubbleLeave('#navPubsBubble')">
+            <img id="navPubsImg" class="navBubbleImg" src="../static/images/bubbles/drinks.png" alt="Pubs & Clubs"/>
+            <span id="navPubsTooltip" class="navBubbleTooltip">Pubs & Clubs</span>
+        </span>
+        <span id="navMapBubble" class="navBubble" onclick="window.location.assign('/map');" onmouseover="bubbleHover('#navMapBubble')" onmouseout="bubbleLeave('#navMapBubble')">
+            <img id="navLocationImg" class="navBubbleImg" src="../static/images/bubbles/location.png" alt="Map"/>
+            <span id="navMapTooltip" class="navBubbleTooltip">Campus Map</span>
+        </span>
+        <span id="navAccommBubble" class="navBubble" onclick="window.location.assign('/accommodation');" onmouseover="bubbleHover('#navAccommBubble')" onmouseout="bubbleLeave('#navAccommBubble')">
+            <img id="navAccommodationImg" class="navBubbleImg" src="../static/images/bubbles/home.png" alt="Accommodation"/>
+            <span id="navAccommTooltip" class="navBubbleTooltip">Accommodation</span>
+        </span>
+        <span id="navHealthBubble" class="navBubble" onclick="window.location.assign('/health');" onmouseover="bubbleHover('#navHealthBubble')" onmouseout="bubbleLeave('#navHealthBubble')">
+            <img id="navHealthImg" class="navBubbleImg" src="../static/images/bubbles/health.png" alt="Health"/>
+            <span id="navHealthTooltip" class="navBubbleTooltip">Health</span>
+        </span>
+        <span id="navSocietiesBubble" class="navBubble" onclick="window.location.assign('/societies');" onmouseover="bubbleHover('#navSocietiesBubble')" onmouseout="bubbleLeave('#navSocietiesBubble')">
+            <img id="navContactsImg" class="navBubbleImg" src="../static/images/bubbles/people.png" alt="Societies"/>
+            <span id="navSocietiesTooltip" class="navBubbleTooltip">Societies</span>
+        </span>
+        <span id="navRevisionBubble" class="navBubble" onclick="window.location.assign('/revision');" onmouseover="bubbleHover('#navRevisionBubble')" onmouseout="bubbleLeave('#navRevisionBubble')">
+            <img id="navRevisionImg" class="navBubbleImg" src="../static/images/bubbles/revision.png" alt="Revision"/>
+            <span id="navRevisionTooltip" class="navBubbleTooltip">Revision</span>
+        </span>
+    </div>
+    <div class="centre">
+        <iframe id="map" src="https://www.google.com/maps/d/u/1/embed?mid=1T0AwCdDKkBrLYUoX1AknKIoLnnZSk0am" width="100%" height="100%" ></iframe>
+    </div>
+</body>
+</html>

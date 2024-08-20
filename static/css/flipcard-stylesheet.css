@@ -1,0 +1,272 @@
+/* Name: William Macpherson
+
+This is the css stylesheet to be used by pubs.html, news-feed.html, societies.html, health.html*/
+
+/*Background colour for the page*/
+html, body {
+    background-color: #d91a35 !important;
+    background: #d91a35 !important;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+/*paragraph text colour*/
+p {
+    color: black !important;
+    text-align: justify;
+}
+
+/*First flipcard situated in top left*/
+#flip-card-1 {
+    background-color: #d91a35;
+    top:5%;
+    left:5%;
+    width: 26.7%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/*Second flipcard situated in top middle*/
+#flip-card-2 {
+    background-color: #d91a35;
+    top:5%;
+    left:36.7%;
+    width: 26.7%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/*Third filpcard situated in top right*/
+#flip-card-3 {
+    background-color: #d91a35;
+    top:5%;
+    right:5%;
+    width: 26.7%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/*Fourth flipcard situated in bottom left*/
+#flip-card-4 {
+    background-color: #d91a35;
+    bottom:5%;
+    left:5%;
+    width: 26.7%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/*Fifth flipcard situated at bottom middle*/
+#flip-card-5 {
+    background-color: #d91a35;
+    bottom:5%;
+    left:36.7%;
+    width: 26.7%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/*Sixth flipcard situated bottom right*/
+#flip-card-6 {
+    background-color: #d91a35;
+    bottom:5%;
+    right:5%;
+    width: 26.7%;
+    height: 42.5%;
+    position: absolute;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/*The front of all flipcards with a blue background color*/
+.flip-card-front {
+    padding: 5px 10px 5px 10px;
+    font-family: 'GilroyBold', 'sans-serif';
+    border-radius: 15px;
+    background-color: #103f67;
+    color: white;
+}
+
+/*The back side of the flipcard where text will be placed as well as instructions to transform 180 degrees when activated*/
+.flip-card-back {
+    padding: 5px 10px 5px 10px;
+    font-family: 'GilroyMedium', 'sans-serif';
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    transform: rotateY(180deg);
+}
+
+/* Positions the front and back sides on the flipcard */
+.flip-card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Position the front and back side to be at matching locations when flipped */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 95%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+/* Flips the flipcard 180 degrees when mouse is hovered over the flipcard*/
+#flip-card-1:hover .flip-card-inner {
+    transform-origin: center;
+    transform: rotateY(180deg);
+}
+#flip-card-2:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-3:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-4:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-5:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+#flip-card-6:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/*Images that are displayed on the front of the flipcards*/
+#studentaccom, #rented, #home, #search, #checklist, #time,
+#doctor, #m_health, #pec1, #pec2, #coronavirus, #s_health,
+#clubs, #pubs, #bars, #tips, #safe, #drinks,
+#societies, #volunteer, #sports_clubs, #s_media, #GIAG, #bursaries, #m_icons {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 10%;
+}
+
+/*position of the title text on the front*/
+#title-front{
+    position: center;
+    bottom: 10%;
+}
+/*back title text and font size*/
+#title-back{
+    font-family: 'GilroyMedium', 'sans-serif';
+    font-size: 2.5vh;
+}
+
+/*video parameters so it fits correctly within flipcard*/
+#video {
+    height: 70%;
+    width: 100%;
+}
+/*class container for all containers */
+.container {
+    display: block;
+    position: relative;
+    text-align: left;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1.7vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 1%;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    font-family: 'GilroyMedium', 'sans-serif';
+}
+
+/* The scroll bar for all text that will overflow the flipcard container*/
+.ScrollStyle {
+    max-height: 100%;
+    max-width: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
+
+}
+/*Ensures the scrollbar is invisible for aesthetics*/
+.ScrollStyle::-webkit-scrollbar {
+  display: none;
+}
+
+/*class for bold text to not overlap with styles.css bold class*/
+.bold {
+    color: black !important;
+    text-align: justify;
+}
+
+/*bullet points text aligning to the left*/
+li {
+    text-align: left;
+}

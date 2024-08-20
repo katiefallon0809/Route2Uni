@@ -1,0 +1,115 @@
+<!--
+Name: Oliver Fox
+
+This page is for when the user first signs in with their Google account. From here they can choose the school they
+attend as well as their role in the website. This is either student or peer mentor. Then when they have pressed sign up
+their account will be created within the Firebase Database, and they will be redirected to the home screen.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/css/bootstrap-fullscreen-select.css"/>
+    <script src="static/js/bootstrap-fullscreen-select.js"></script>
+    <script src="static/js/animejs/lib/anime.min.js"></script>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 480px)" href="../static/css/mobile-stylesheet.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+
+    <!-- Link all favicons for different sizes. -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}"> <!-- Manifest responsible for working as a web app on mobile devices. -->
+    <title>Sign Up - RouteToUni</title>
+</head>
+<body>
+    <div id="gSignUpDialog" class="gSignUpDialog">
+        <div class="gSignUpDialogContent">
+            <h3 class="noSelect">Sign Up</h3>
+
+            <select class="form-control mobileSelect" data-title="Select your school" name="courses" id="courses">
+                <option value="blank">Select your school</option>
+                <option value="architecture">School of Architecture, Planning and Landscape</option>
+                <option value="artsAndCulture">School of Arts and Cultures</option>
+                <option value="business">Business School</option>
+                <option value="honoursCentre">Combined Honours Centre</option>
+                <option value="educationCommunication">School of Education, Communication and Language Sciences</option>
+                <option value="english">School of English Literature, Language and Linguistics</option>
+                <option value="geography">School of Geography, Politics and Sociology</option>
+                <option value="history">School of History, Classics and Archaeology</option>
+                <option value="law">Newcastle Law School</option>
+                <option value="modernLang">School of Modern Languages</option>
+                <option value="philosophical">Philosophical Studies</option>
+                <option value="biomed">School of Biomedical, Nutritional and Sport Sciences</option>
+                <option value="dental">School of Dental Sciences</option>
+                <option value="medical">School of Medical Education</option>
+                <option value="pharmacy">School of Pharmacy</option>
+                <option value="psychology">School of Psychology</option>
+                <option value="computing">School of Computing</option>
+                <option value="engineering">School of Engineering</option>
+                <option value="mathematics">School of Mathematics, Statistics and Physics</option>
+                <option value="environmental">School of Natural and Environmental Sciences</option>
+            </select><br><br>
+
+            <select class="form-control mobileSelect" data-title="Select your role" name="roles" id="roles">
+                <option value="blank">Select your role</option>
+                <option value="student">Student</option>
+                <option value="mentor">Peer Mentor</option>
+            </select><br><br>
+
+            <button onclick="createAccount()" id="gSignUp" style="font-family: Nunito" class="noSelect">Sign Up</button>
+        </div>
+    </div>
+
+    <script>
+        // This enables the Bootstrap Fullscreen Select library to have a better select menu so it is more accessible on
+        // mobile, the animate and theme are also determined here to change the look and feel.
+        $('.mobileSelect').mobileSelect({
+            animation: 'opacity',
+            theme: 'mac'
+        });
+
+        // This function is where the new user is added to the database.
+        function createAccount() {
+            firebase.database().ref('users/' + sessionStorage.getItem('uid')).set({
+                name: sessionStorage.getItem('name'),
+                email: sessionStorage.getItem('email'),
+                course: document.getElementById('courses').options[document.getElementById('courses').selectedIndex].text,
+                role: document.getElementById('roles').options[document.getElementById('roles').selectedIndex].text,
+                uid: sessionStorage.getItem('uid'),
+                profilePicture: sessionStorage.getItem('picture'),
+                mentor_verified: false
+            }, (error) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    addCookieRedirect();
+                }
+            });
+        }
+
+        // The users cookie is created and they are redirected to the home page.
+        function addCookieRedirect() {
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+            firebase.auth().currentUser.getIdToken(true).then(idToken => {
+            fetch('/sessionLogin?idToken=' + idToken).then(()=> {
+                window.location.assign('/');
+                return firebase.auth().signOut();})
+        })}
+    </script>
+
+    <!-- Initialize Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-database.js"></script>
+    <script src="static/js/init.js"></script>
+
+    <script src="static/js/auth.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
+</html>
